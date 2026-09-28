@@ -34,13 +34,11 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 .cell:hover .cov{opacity:1;}
 .ctit{font-family:'EB Garamond',serif;font-size:.7rem;font-style:italic;color:#fff;line-height:1.2;}
 .egrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.ecell{cursor:zoom-in;overflow:hidden;border-radius:8px;background:#e2e1de;border:1px solid #e5e4e0;}
-.ecell img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:opacity .2s;border-radius:8px 8px 0 0;}
+.ecell{cursor:zoom-in;overflow:hidden;border-radius:8px;background:#f8f7f5;border:1px solid #e5e4e0;display:flex;flex-direction:column;}
+.ecell img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:opacity .2s;background:#f8f7f5;}
 .ecell:hover img{opacity:.82;}
-.einfo{padding:6px 7px 9px;background:#f8f7f5;border-top:1px solid #e5e4e0;border-radius:0 0 8px 8px;}
-.ename{font-weight:700;font-size:.62rem;color:#1c1c1a;line-height:1.25;margin-bottom:2px;}
-.edate{font-size:.58rem;color:#999990;}
-.enote{font-size:.56rem;color:#c0c0b8;font-style:italic;margin-top:2px;}
+.einfo{flex:1;display:flex;align-items:center;min-height:2.6em;padding:6px 8px;background:#f8f7f5;border-top:1px solid #e5e4e0;}
+.edate{font-size:.62rem;color:#6f6f68;line-height:1.3;}
 .about-wrap{max-width:600px;}
 .about-img{width:100%;border-radius:6px;display:block;margin-bottom:24px;}
 .ap{font-family:'EB Garamond',serif;font-size:1.05rem;line-height:1.82;color:#1c1c1a;margin-bottom:16px;}
@@ -110,18 +108,18 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 
   <div class="pn" id="p-exhibits">
     <div class="egrid">
-      <div class="ecell" onclick="oLB('e',0)"><img src="img/exhibits/la-caroyense-2022.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Centro Cultural La Caroyense</div><div class="edate">Mayo-Ago. 2022 - Colonia Caroya</div></div></div>
-      <div class="ecell" onclick="oLB('e',1)"><img src="img/exhibits/museo-biondi-jesus-maria.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Museo Luis Biondi</div><div class="edate">Ago.-Sep. 2022 - Jesus Maria</div><div class="enote">Presencias + Sakura Fubuki</div></div></div>
-      <div class="ecell" onclick="oLB('e',2)"><img src="img/exhibits/casa-cultura-canale.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Casa de la Cultura Martha Canale</div><div class="edate">Sep.-Nov. 2022 - Colonia Caroya</div></div></div>
-      <div class="ecell" onclick="oLB('e',3)"><img src="img/exhibits/museo-comunal-cumbrecita.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Museo Comunal</div><div class="edate">Sep.-Dic. 2022 - La Cumbrecita</div></div></div>
-      <div class="ecell" onclick="oLB('e',4)"><img src="img/exhibits/13-retratos-torre-cespedes.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Torre Cespedes</div><div class="edate">Oct.-Dic. 2022 - Jesus Maria</div><div class="enote">13 Retratos, 13 Relatos</div></div></div>
-      <div class="ecell" onclick="oLB('e',5)"><img src="img/exhibits/paseo-artes-2023.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Centro Cultural Paseo de las Artes</div><div class="edate">Ago.-Sep. 2023 - Cordoba Capital</div><div class="enote">Serie: Presencias</div></div></div>
-      <div class="ecell" onclick="oLB('e',6)"><img src="img/exhibits/casa-pepino.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Centro Cultural Casa de Pepino</div><div class="edate">Sep.-Oct. 2023 - Cordoba Capital</div></div></div>
-      <div class="ecell" onclick="oLB('e',7)"><img src="img/exhibits/juarez-celman.png" alt="" loading="lazy"><div class="einfo"><div class="ename">Museo Juarez Celman</div><div class="edate">Nov.-Dic. 2023 - Est. J. Celman</div><div class="enote">Noche de los Museos 2023</div></div></div>
-      <div class="ecell" onclick="oLB('e',8)"><img src="img/exhibits/carlos-paz.png" alt="" loading="lazy"><div class="einfo"><div class="ename">Municipalidad de Villa Carlos Paz</div><div class="edate">Nov.-Dic. 2023 - Carlos Paz</div></div></div>
-      <div class="ecell" onclick="oLB('e',9)"><img src="img/exhibits/cabildo-cordoba-flyer.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Cabildo Historico de Cordoba</div><div class="edate">Marzo-Mayo 2024 - Cordoba Capital</div><div class="enote">Puertas Adentro</div></div></div>
-      <div class="ecell" onclick="oLB('e',10)"><img src="img/exhibits/puertas-adentro-riocuarto.jpeg" alt="" loading="lazy"><div class="einfo"><div class="ename">Palacio Municipal de Rio Cuarto</div><div class="edate">Nov.-Dic. 2024 - Rio Cuarto</div><div class="enote">Puertas Adentro</div></div></div>
-      <div class="ecell" onclick="oLB('e',11)"><img src="img/exhibits/practicas-situadas-2026.jpg" alt="" loading="lazy"><div class="einfo"><div class="ename">Legislatura Historica de la Provincia de Cordoba</div><div class="edate">Marzo-Junio 2026 - Cordoba Capital</div><div class="enote">Practicas situadas</div></div></div>
+      <div class="ecell" onclick="oLB('e',0)"><img src="img/exhibits/la-caroyense-2022.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Mayo-Ago. 2022 - Colonia Caroya</div></div></div>
+      <div class="ecell" onclick="oLB('e',1)"><img src="img/exhibits/museo-biondi-jesus-maria.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2022 - Jesus Maria</div></div></div>
+      <div class="ecell" onclick="oLB('e',2)"><img src="img/exhibits/casa-cultura-canale.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Sep.-Nov. 2022 - Colonia Caroya</div></div></div>
+      <div class="ecell" onclick="oLB('e',3)"><img src="img/exhibits/museo-comunal-cumbrecita.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Sep.-Dic. 2022 - La Cumbrecita</div></div></div>
+      <div class="ecell" onclick="oLB('e',4)"><img src="img/exhibits/13-retratos-torre-cespedes.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Oct.-Dic. 2022 - Jesus Maria</div></div></div>
+      <div class="ecell" onclick="oLB('e',5)"><img src="img/exhibits/paseo-artes-2023.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2023 - Cordoba Capital</div></div></div>
+      <div class="ecell" onclick="oLB('e',6)"><img src="img/exhibits/casa-pepino.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Sep.-Oct. 2023 - Cordoba Capital</div></div></div>
+      <div class="ecell" onclick="oLB('e',7)"><img src="img/exhibits/juarez-celman.png" alt="" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Est. J. Celman</div></div></div>
+      <div class="ecell" onclick="oLB('e',8)"><img src="img/exhibits/carlos-paz.png" alt="" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Carlos Paz</div></div></div>
+      <div class="ecell" onclick="oLB('e',9)"><img src="img/exhibits/cabildo-cordoba-flyer.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Marzo-Mayo 2024 - Cordoba Capital</div></div></div>
+      <div class="ecell" onclick="oLB('e',10)"><img src="img/exhibits/puertas-adentro-riocuarto.jpeg" alt="" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2024 - Rio Cuarto</div></div></div>
+      <div class="ecell" onclick="oLB('e',11)"><img src="img/exhibits/practicas-situadas-2026.jpg" alt="" loading="lazy"><div class="einfo"><div class="edate">Marzo-Junio 2026 - Cordoba Capital</div></div></div>
     </div>
   </div>
 
