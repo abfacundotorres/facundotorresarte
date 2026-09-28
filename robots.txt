@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://facundotorresarte.com.ar/sitemap.xml
