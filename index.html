@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,12 +90,12 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 <body>
 <aside class="sidebar">
   <h1 class="name">Facundo<br>Torres</h1>
-  <p class="loc" id="loc-txt">Visual artist from Córdoba, Argentina</p>
+  <p class="loc" id="loc-txt">Artista visual de Córdoba, Argentina</p>
   <nav class="nav">
-    <button class="nb on" onclick="show('works',this)" id="nav-works">Works</button>
-    <button class="nb" onclick="show('exhibits',this)" id="nav-exhibits">Exhibits</button>
-    <button class="nb" onclick="show('about',this)" id="nav-about">About</button>
-    <button class="nb" onclick="show('courses',this)" id="nav-courses">Courses</button>
+    <button class="nb on" onclick="show('works',this)" id="nav-works">Obras</button>
+    <button class="nb" onclick="show('exhibits',this)" id="nav-exhibits">Muestras</button>
+    <button class="nb" onclick="show('about',this)" id="nav-about">Acerca</button>
+    <button class="nb" onclick="show('courses',this)" id="nav-courses">Cursos</button>
   </nav>
   <div class="icons">
     <a href="https://instagram.com/facundotorres.arte" target="_blank" class="il" title="Instagram">
@@ -108,7 +108,7 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
       <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
   </div>
-  <button class="lang-btn" id="lang-btn" onclick="toggleLang()">ES</button>
+  <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
 </aside>
 
 <main class="main">
@@ -153,17 +153,17 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
   <div class="pn" id="p-about">
     <div class="about-wrap">
       <img src="img/self-portrait.jpg" alt="Autorretrato de Facundo Torres, artista visual" class="about-img">
-      <p class="ap" id="about1">My name is Facundo Torres. I was born in Buenos Aires, Argentina, in 1989. I am a visual artist, musician, and lawyer. My training is eclectic, primarily self-taught, drawing from the techniques of classical drawing and painting academies.</p>
-      <p class="ap" id="about2">Art is the way I communicate what I cannot put into words, the space that heals what I did not know was damaged, and the path of learning toward what I only intuit.</p>
-      <p class="ap" id="about3">Since 2022 my work has been exhibited across Córdoba province, in government institutions, cultural centers, and public museums. In parallel, I develop institutional projects where visual art meets education, artificial intelligence, and neurotechnology.</p>
+      <p class="ap" id="about1">Me llamo Facundo Torres. Nací en Buenos Aires, Argentina, en 1989. Soy artista visual, músico y abogado. Mi formación es ecléctica, principalmente autodidacta, nutrida de las técnicas de la academia clásica de dibujo y pintura.</p>
+      <p class="ap" id="about2">El arte es la forma en que comunico lo que no puedo poner en palabras, el espacio que sana lo que no sabía que estaba dañado, y el camino de aprendizaje hacia lo que solo intuyo.</p>
+      <p class="ap" id="about3">Desde 2022 mi obra recorre la provincia de Córdoba, instituciones gubernamentales, centros culturales y museos públicos. En paralelo, desarrollo proyectos institucionales donde el arte visual se encuentra con la educación, la inteligencia artificial y la neurotecnología.</p>
     </div>
   </div>
 
   <div class="pn" id="p-courses">
     <div class="courses-wrap">
       <img src="img/clase.jpeg" alt="Clase de dibujo de Facundo Torres" class="courses-img">
-      <p class="ctext" id="courses-txt">I offer drawing courses both in-person and online. Each session is focused on technique, expression, and developing a personal visual language.</p>
-      <a href="https://wa.me/5493525502495" target="_blank" class="ccta" id="courses-cta">Get in touch</a>
+      <p class="ctext" id="courses-txt">Ofrezco cursos de dibujo presenciales y online. Cada encuentro está orientado a la técnica, la expresión y el desarrollo de un lenguaje visual propio.</p>
+      <a href="https://wa.me/5493525502495" target="_blank" class="ccta" id="courses-cta">Contactar</a>
     </div>
   </div>
 </main>
@@ -212,7 +212,7 @@ var E = [
 
 var mode = "w";
 var cur = 0;
-var lang = "en";
+var lang = "es";
 
 var txt = {
   en: {
@@ -240,6 +240,7 @@ var txt = {
 function toggleLang() {
   lang = (lang === "en") ? "es" : "en";
   var t = txt[lang];
+  document.documentElement.lang = lang;
   document.getElementById("loc-txt").textContent = t.loc;
   document.getElementById("nav-works").textContent = t.works;
   document.getElementById("nav-exhibits").textContent = t.exhibits;
