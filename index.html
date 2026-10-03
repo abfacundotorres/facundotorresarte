@@ -46,7 +46,7 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 .name{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-size:3.2rem;font-weight:700;line-height:0.9;letter-spacing:0.02em;text-transform:uppercase;color:#282825;margin-bottom:8px;}
 .loc{font-size:0.7rem;color:#999990;letter-spacing:0.02em;margin-bottom:24px;}
 .nav{display:flex;flex-direction:column;gap:2px;margin-bottom:auto;}
-.nb{background:none;border:none;cursor:pointer;text-align:left;padding:5px 0;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#c0c0b8;transition:color .15s;}
+.nb{display:block;text-decoration:none;background:none;border:none;cursor:pointer;text-align:left;padding:5px 0;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#c0c0b8;transition:color .15s;}
 .nb:hover{color:#999990;}
 .nb.on{color:#1c1c1a;}
 .icons{margin-top:16px;display:flex;gap:18px;align-items:center;}
@@ -66,7 +66,7 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 .ctit{font-family:'EB Garamond',serif;font-size:.7rem;font-style:italic;color:#fff;line-height:1.2;}
 .egrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .ecell{cursor:zoom-in;overflow:hidden;border-radius:8px;background:#f8f7f5;border:1px solid #e5e4e0;display:flex;flex-direction:column;}
-.ecell img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:opacity .2s;background:#f8f7f5;}
+.ecell img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block;transition:opacity .2s;background:#f8f7f5;}
 .ecell:hover img{opacity:.82;}
 .einfo{flex:1;display:flex;align-items:center;min-height:2.6em;padding:6px 8px;background:#f8f7f5;border-top:1px solid #e5e4e0;}
 .edate{font-size:.62rem;color:#6f6f68;line-height:1.3;}
@@ -87,6 +87,7 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 .lba{position:fixed;top:50%;transform:translateY(-50%);background:none;border:none;font-size:1rem;color:#c0c0b8;cursor:pointer;padding:28px;z-index:301;}
 .lba:hover{color:#1c1c1a;}
 .lbl{left:0;}.lbr{right:0;}
+.cell:focus-visible,.ecell:focus-visible,.nb:focus-visible,.lb button:focus-visible{outline:2px solid #1c1c1a;outline-offset:2px;}
 @media(max-width:900px){.sidebar{position:static;width:100%;height:auto;border-right:none;border-bottom:1px solid #e5e4e0;padding:26px 20px 18px;}.main{margin-left:0;padding:24px 16px 60px;}.wgrid,.egrid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){.wgrid,.egrid{grid-template-columns:repeat(2,1fr);}}
 </style>
@@ -96,10 +97,10 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
   <h1 class="name">Facundo<br>Torres</h1>
   <p class="loc" id="loc-txt">Artista visual de Córdoba, Argentina</p>
   <nav class="nav">
-    <button class="nb on" onclick="show('works',this)" id="nav-works">Obras</button>
-    <button class="nb" onclick="show('exhibits',this)" id="nav-exhibits">Muestras</button>
-    <button class="nb" onclick="show('about',this)" id="nav-about">Acerca</button>
-    <button class="nb" onclick="show('courses',this)" id="nav-courses">Cursos</button>
+    <a class="nb on" href="#obras" id="nav-works">Obras</a>
+    <a class="nb" href="#muestras" id="nav-exhibits">Muestras</a>
+    <a class="nb" href="#acerca" id="nav-about">Acerca</a>
+    <a class="nb" href="#cursos" id="nav-courses">Cursos</a>
   </nav>
   <div class="icons">
     <a href="https://instagram.com/facundotorres.arte" target="_blank" class="il" title="Instagram">
@@ -118,39 +119,39 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
 <main class="main">
   <div class="pn on" id="p-works">
     <div class="wgrid">
-      <div class="cell" onclick="oLB('w',0)"><img src="img/en-el-limbo-vi.webp" alt="En el Limbo VI — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo VI</span></div></div>
-      <div class="cell" onclick="oLB('w',1)"><img src="img/voluntad.webp" alt="Voluntad — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Voluntad</span></div></div>
-      <div class="cell" onclick="oLB('w',2)"><img src="img/cartonera.webp" alt="Cartonera — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Cartonera</span></div></div>
-      <div class="cell" onclick="oLB('w',3)"><img src="img/confio.webp" alt="Confio — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Confio</span></div></div>
-      <div class="cell" onclick="oLB('w',4)"><img src="img/camino.webp" alt="Camino — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Camino</span></div></div>
-      <div class="cell" onclick="oLB('w',5)"><img src="img/madres.webp" alt="Madres — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Madres</span></div></div>
-      <div class="cell" onclick="oLB('w',6)"><img src="img/homeless.webp" alt="Homeless — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Homeless</span></div></div>
-      <div class="cell" onclick="oLB('w',7)"><img src="img/en-el-limbo-iii.webp" alt="En el Limbo III — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo III</span></div></div>
-      <div class="cell" onclick="oLB('w',8)"><img src="img/lo-inefable-aturde.webp" alt="Lo inefable aturde — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Lo inefable aturde</span></div></div>
-      <div class="cell" onclick="oLB('w',9)"><img src="img/en-el-limbo-ii.webp" alt="En el Limbo II — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo II</span></div></div>
-      <div class="cell" onclick="oLB('w',10)"><img src="img/en-lo-interior.webp" alt="En lo interior — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En lo interior</span></div></div>
-      <div class="cell" onclick="oLB('w',11)"><img src="img/la-otra-moneda.webp" alt="La otra moneda — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">La otra moneda</span></div></div>
-      <div class="cell" onclick="oLB('w',12)"><img src="img/invisible.webp" alt="Invisible — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Invisible</span></div></div>
-      <div class="cell" onclick="oLB('w',13)"><img src="img/puer-aeternus.webp" alt="Puer Aeternus — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Puer Aeternus</span></div></div>
-      <div class="cell" onclick="oLB('w',14)"><img src="img/contradiccion.webp" alt="Contradiccion — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Contradiccion</span></div></div>
-      <div class="cell" onclick="oLB('w',15)"><img src="img/desilucion.webp" alt="Desilucion — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Desilucion</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',0)"><img src="img/thumbs/en-el-limbo-vi.webp" width="480" height="640" alt="En el Limbo VI — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo VI</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',1)"><img src="img/thumbs/voluntad.webp" width="480" height="639" alt="Voluntad — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Voluntad</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',2)"><img src="img/thumbs/cartonera.webp" width="480" height="640" alt="Cartonera — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Cartonera</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',3)"><img src="img/thumbs/confio.webp" width="480" height="600" alt="Confio — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Confio</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',4)"><img src="img/thumbs/camino.webp" width="480" height="640" alt="Camino — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Camino</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',5)"><img src="img/thumbs/madres.webp" width="480" height="640" alt="Madres — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Madres</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',6)"><img src="img/thumbs/homeless.webp" width="480" height="640" alt="Homeless — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Homeless</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',7)"><img src="img/thumbs/en-el-limbo-iii.webp" width="480" height="640" alt="En el Limbo III — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo III</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',8)"><img src="img/thumbs/lo-inefable-aturde.webp" width="480" height="600" alt="Lo inefable aturde — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Lo inefable aturde</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',9)"><img src="img/thumbs/en-el-limbo-ii.webp" width="480" height="640" alt="En el Limbo II — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En el Limbo II</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',10)"><img src="img/thumbs/en-lo-interior.webp" width="480" height="600" alt="En lo interior — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">En lo interior</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',11)"><img src="img/thumbs/la-otra-moneda.webp" width="480" height="640" alt="La otra moneda — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">La otra moneda</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',12)"><img src="img/thumbs/invisible.webp" width="480" height="640" alt="Invisible — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Invisible</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',13)"><img src="img/thumbs/puer-aeternus.webp" width="480" height="600" alt="Puer Aeternus — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Puer Aeternus</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',14)"><img src="img/thumbs/contradiccion.webp" width="480" height="600" alt="Contradiccion — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Contradiccion</span></div></div>
+      <div class="cell" role="button" tabindex="0" onclick="oLB('w',15)"><img src="img/thumbs/desilucion.webp" width="480" height="600" alt="Desilucion — obra de Facundo Torres" loading="lazy"><div class="cov"><span class="ctit">Desilucion</span></div></div>
     </div>
   </div>
 
   <div class="pn" id="p-exhibits">
     <div class="egrid">
-      <div class="ecell" onclick="oLB('e',0)"><img src="img/exhibits/la-caroyense-2022.jpg" alt="Flyer de muestra de Facundo Torres, Mayo-Ago. 2022 - Colonia Caroya" loading="lazy"><div class="einfo"><div class="edate">Mayo-Ago. 2022 - Colonia Caroya</div></div></div>
-      <div class="ecell" onclick="oLB('e',1)"><img src="img/exhibits/museo-biondi-jesus-maria.jpg" alt="Flyer de muestra de Facundo Torres, Ago.-Sep. 2022 - Jesus Maria" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2022 - Jesus Maria</div></div></div>
-      <div class="ecell" onclick="oLB('e',2)"><img src="img/exhibits/casa-cultura-canale.jpg" alt="Flyer de muestra de Facundo Torres, Sep.-Nov. 2022 - Colonia Caroya" loading="lazy"><div class="einfo"><div class="edate">Sep.-Nov. 2022 - Colonia Caroya</div></div></div>
-      <div class="ecell" onclick="oLB('e',3)"><img src="img/exhibits/museo-comunal-cumbrecita.jpg" alt="Flyer de muestra de Facundo Torres, Sep.-Dic. 2022 - La Cumbrecita" loading="lazy"><div class="einfo"><div class="edate">Sep.-Dic. 2022 - La Cumbrecita</div></div></div>
-      <div class="ecell" onclick="oLB('e',4)"><img src="img/exhibits/13-retratos-torre-cespedes.jpg" alt="Flyer de muestra de Facundo Torres, Oct.-Dic. 2022 - Jesus Maria" loading="lazy"><div class="einfo"><div class="edate">Oct.-Dic. 2022 - Jesus Maria</div></div></div>
-      <div class="ecell" onclick="oLB('e',5)"><img src="img/exhibits/paseo-artes-2023.jpg" alt="Flyer de muestra de Facundo Torres, Ago.-Sep. 2023 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2023 - Cordoba Capital</div></div></div>
-      <div class="ecell" onclick="oLB('e',6)"><img src="img/exhibits/casa-pepino.jpg" alt="Flyer de muestra de Facundo Torres, Sep.-Oct. 2023 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Sep.-Oct. 2023 - Cordoba Capital</div></div></div>
-      <div class="ecell" onclick="oLB('e',7)"><img src="img/exhibits/juarez-celman.png" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2023 - Est. J. Celman" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Est. J. Celman</div></div></div>
-      <div class="ecell" onclick="oLB('e',8)"><img src="img/exhibits/carlos-paz.png" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2023 - Carlos Paz" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Carlos Paz</div></div></div>
-      <div class="ecell" onclick="oLB('e',9)"><img src="img/exhibits/cabildo-cordoba-flyer.jpg" alt="Flyer de muestra de Facundo Torres, Marzo-Mayo 2024 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Marzo-Mayo 2024 - Cordoba Capital</div></div></div>
-      <div class="ecell" onclick="oLB('e',10)"><img src="img/exhibits/puertas-adentro-riocuarto.jpeg" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2024 - Rio Cuarto" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2024 - Rio Cuarto</div></div></div>
-      <div class="ecell" onclick="oLB('e',11)"><img src="img/exhibits/practicas-situadas-2026.jpg" alt="Flyer de muestra de Facundo Torres, Marzo-Junio 2026 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Marzo-Junio 2026 - Cordoba Capital</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',0)"><img src="img/exhibits/thumbs/la-caroyense-2022.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Mayo-Ago. 2022 - Colonia Caroya" loading="lazy"><div class="einfo"><div class="edate">Mayo-Ago. 2022 - Colonia Caroya</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',1)"><img src="img/exhibits/thumbs/museo-biondi-jesus-maria.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Ago.-Sep. 2022 - Jesus Maria" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2022 - Jesus Maria</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',2)"><img src="img/exhibits/thumbs/casa-cultura-canale.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Sep.-Nov. 2022 - Colonia Caroya" loading="lazy"><div class="einfo"><div class="edate">Sep.-Nov. 2022 - Colonia Caroya</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',3)"><img src="img/exhibits/thumbs/museo-comunal-cumbrecita.webp" width="480" height="600" alt="Flyer de muestra de Facundo Torres, Sep.-Dic. 2022 - La Cumbrecita" loading="lazy"><div class="einfo"><div class="edate">Sep.-Dic. 2022 - La Cumbrecita</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',4)"><img src="img/exhibits/thumbs/13-retratos-torre-cespedes.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Oct.-Dic. 2022 - Jesus Maria" loading="lazy"><div class="einfo"><div class="edate">Oct.-Dic. 2022 - Jesus Maria</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',5)"><img src="img/exhibits/thumbs/paseo-artes-2023.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Ago.-Sep. 2023 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Ago.-Sep. 2023 - Cordoba Capital</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',6)"><img src="img/exhibits/thumbs/casa-pepino.webp" width="480" height="600" alt="Flyer de muestra de Facundo Torres, Sep.-Oct. 2023 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Sep.-Oct. 2023 - Cordoba Capital</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',7)"><img src="img/exhibits/thumbs/juarez-celman.webp" width="482" height="480" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2023 - Est. J. Celman" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Est. J. Celman</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',8)"><img src="img/exhibits/thumbs/carlos-paz.webp" width="480" height="481" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2023 - Carlos Paz" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2023 - Carlos Paz</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',9)"><img src="img/exhibits/thumbs/cabildo-cordoba-flyer.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Marzo-Mayo 2024 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Marzo-Mayo 2024 - Cordoba Capital</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',10)"><img src="img/exhibits/thumbs/puertas-adentro-riocuarto.webp" width="480" height="480" alt="Flyer de muestra de Facundo Torres, Nov.-Dic. 2024 - Rio Cuarto" loading="lazy"><div class="einfo"><div class="edate">Nov.-Dic. 2024 - Rio Cuarto</div></div></div>
+      <div class="ecell" role="button" tabindex="0" onclick="oLB('e',11)"><img src="img/exhibits/thumbs/practicas-situadas-2026.webp" width="480" height="598" alt="Flyer de muestra de Facundo Torres, Marzo-Junio 2026 - Cordoba Capital" loading="lazy"><div class="einfo"><div class="edate">Marzo-Junio 2026 - Cordoba Capital</div></div></div>
     </div>
   </div>
 
@@ -172,11 +173,11 @@ body{background:#f8f7f5;color:#1c1c1a;font-family:'Helvetica Neue',Helvetica,Ari
   </div>
 </main>
 
-<div class="lb" id="lb" onclick="if(event.target===this)xLB()">
-  <button class="lbx" onclick="xLB()">close</button>
-  <button class="lba lbl" onclick="nav(-1);event.stopPropagation()">&#8592;</button>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbcap" onclick="if(event.target===this)xLB()">
+  <button class="lbx" id="lbx" onclick="xLB()">cerrar</button>
+  <button class="lba lbl" id="lbprev" aria-label="Anterior" onclick="nav(-1);event.stopPropagation()">&#8592;</button>
   <img id="lbimg" src="" alt="">
-  <button class="lba lbr" onclick="nav(1);event.stopPropagation()">&#8594;</button>
+  <button class="lba lbr" id="lbnext" aria-label="Siguiente" onclick="nav(1);event.stopPropagation()">&#8594;</button>
   <span class="lbcap" id="lbcap"></span>
 </div>
 
@@ -227,7 +228,8 @@ var txt = {
     about3: "Since 2022 my work has been exhibited across Córdoba province, in government institutions, cultural centers, and public museums. In parallel, I develop institutional projects where visual art meets education, artificial intelligence, and neurotechnology.",
     coursestxt: "I offer drawing courses both in-person and online. Each session is focused on technique, expression, and developing a personal visual language.",
     coursescta: "Get in touch",
-    langbtn: "ES"
+    langbtn: "ES",
+    close: "close", prev: "Previous", next: "Next"
   },
   es: {
     loc: "Artista visual de Córdoba, Argentina",
@@ -237,7 +239,8 @@ var txt = {
     about3: "Desde 2022 mi obra recorre la provincia de Córdoba, instituciones gubernamentales, centros culturales y museos públicos. En paralelo, desarrollo proyectos institucionales donde el arte visual se encuentra con la educación, la inteligencia artificial y la neurotecnología.",
     coursestxt: "Ofrezco cursos de dibujo presenciales y online. Cada encuentro está orientado a la técnica, la expresión y el desarrollo de un lenguaje visual propio.",
     coursescta: "Contactar",
-    langbtn: "EN"
+    langbtn: "EN",
+    close: "cerrar", prev: "Anterior", next: "Siguiente"
   }
 };
 
@@ -256,46 +259,100 @@ function toggleLang() {
   document.getElementById("courses-txt").textContent = t.coursestxt;
   document.getElementById("courses-cta").textContent = t.coursescta;
   document.getElementById("lang-btn").textContent = t.langbtn;
+  document.getElementById("lbx").textContent = t.close;
+  document.getElementById("lbprev").setAttribute("aria-label", t.prev);
+  document.getElementById("lbnext").setAttribute("aria-label", t.next);
 }
 
+var lastFocus = null;
+
+function setLB(arr, i) {
+  var img = document.getElementById("lbimg");
+  img.src = arr[i].s;
+  img.alt = arr[i].t;
+  document.getElementById("lbcap").textContent = arr[i].t;
+  // preload neighbours so arrows/swipes feel instant
+  [arr[(i + 1) % arr.length], arr[(i - 1 + arr.length) % arr.length]].forEach(function(x) { new Image().src = x.s; });
+}
 function oLB(m, i) {
   mode = m;
   cur = i;
-  var arr = (m === "w") ? W : E;
-  document.getElementById("lbimg").src = arr[i].s;
-  document.getElementById("lbimg").alt = arr[i].t;
-  document.getElementById("lbcap").textContent = arr[i].t;
+  setLB(m === "w" ? W : E, i);
+  lastFocus = document.activeElement;
   document.getElementById("lb").classList.add("on");
   document.body.style.overflow = "hidden";
+  document.getElementById("lbx").focus();
+  // extra history entry so the phone's back button closes the viewer instead of leaving the site
+  history.pushState({ lb: true }, "");
 }
 function nav(d) {
   var arr = (mode === "w") ? W : E;
   cur = (cur + d + arr.length) % arr.length;
-  document.getElementById("lbimg").src = arr[cur].s;
-  document.getElementById("lbimg").alt = arr[cur].t;
-  document.getElementById("lbcap").textContent = arr[cur].t;
+  setLB(arr, cur);
 }
-function xLB() {
+function closeLB() {
   document.getElementById("lb").classList.remove("on");
   document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
 }
-function show(n, b) {
+function xLB() {
+  if (history.state && history.state.lb) history.back();
+  else closeLB();
+}
+window.addEventListener("popstate", function() {
+  if (document.getElementById("lb").classList.contains("on")) closeLB();
+});
+
+var ROUTES = { obras: "works", muestras: "exhibits", acerca: "about", cursos: "courses",
+               works: "works", exhibits: "exhibits", about: "about", courses: "courses" };
+function route() {
+  var n = ROUTES[location.hash.slice(1).toLowerCase()] || "works";
   var panels = document.querySelectorAll(".pn");
-  for (var i = 0; i < panels.length; i++) {
-    panels[i].classList.remove("on");
-  }
+  for (var i = 0; i < panels.length; i++) panels[i].classList.remove("on");
   document.getElementById("p-" + n).classList.add("on");
   var btns = document.querySelectorAll(".nb");
   for (var j = 0; j < btns.length; j++) {
     btns[j].classList.remove("on");
+    btns[j].removeAttribute("aria-current");
   }
+  var b = document.getElementById("nav-" + n);
   b.classList.add("on");
+  b.setAttribute("aria-current", "page");
 }
+// on phones the sidebar sits above the content, so jump to the section itself
+function toSection() { document.querySelector(".main").scrollIntoView(); }
+window.addEventListener("hashchange", function() { route(); toSection(); });
+route();
+if (location.hash) toSection();
+
 document.addEventListener("keydown", function(e) {
-  if (!document.getElementById("lb").classList.contains("on")) return;
+  var lb = document.getElementById("lb");
+  if (!lb.classList.contains("on")) {
+    var c = e.target.closest && e.target.closest(".cell,.ecell");
+    if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); c.click(); }
+    return;
+  }
   if (e.key === "Escape") xLB();
   if (e.key === "ArrowLeft") nav(-1);
   if (e.key === "ArrowRight") nav(1);
+  if (e.key === "Tab") {
+    // keep focus inside the viewer
+    var f = lb.querySelectorAll("button");
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+
+var tx = null, ty = null;
+document.getElementById("lb").addEventListener("touchstart", function(e) {
+  tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+}, { passive: true });
+document.getElementById("lb").addEventListener("touchend", function(e) {
+  if (tx === null) return;
+  var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+  tx = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) nav(dx < 0 ? 1 : -1);
 });
 </script>
 </body>
